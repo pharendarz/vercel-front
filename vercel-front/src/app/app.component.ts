@@ -12,4 +12,7 @@ export class AppComponent {
   public getData() {
     return this.testService.getData().subscribe();
   }
+  public getCurrencies() {
+    return this.testService.getCurrencies().subscribe();
+  }
 }

@@ -1,8 +1,13 @@
 <div>
   <h1>vercel front</h1>
-  <button (click)="getData()">get data</button>
+  <button (click)="getData()">vercel get data</button>
+  <button (click)="getData()">vercel get currencies</button>
+
   <!-- <ul>
     <li *ngFor="let item of testService.data">{{ item }}</li>
   </ul> -->
+  <p>data:</p>
   <div *ngIf="testService.data | async as data">{{ data }}</div>
+  <p>currencies:</p>
+  <div *ngIf="testService.currencies | async as data">{{ data }}</div>
 </div>
