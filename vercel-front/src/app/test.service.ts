@@ -26,19 +26,25 @@ export class TestService {
     return this.data$.asObservable();
   }
   public getData(): Observable<any> {
-    return this.httpClient.get<any>(`vercel-server2.vercel.app/api/data`).pipe(
-      tap((response: any) => {
-        if (response && response.data.length > 0) {
-          console.log('data', response);
-          this.data$.next(response.data);
-        }
-      })
-    );
+    return this.httpClient
+      .get<any>(
+        `https://vercel-server2-ha42heyy9-hends-projects-41abfdd8.vercel.app/api/data`
+      )
+      .pipe(
+        tap((response: any) => {
+          if (response && response.data.length > 0) {
+            console.log('data', response);
+            this.data$.next(response.data);
+          }
+        })
+      );
   }
 
   public getCurrencies(): Observable<any> {
     return this.httpClient
-      .get<any>(`${url}/api/get-currency-by-date/PLN/20240403`)
+      .get<any>(
+        `https://finance-app-server-m0jp84757-hends-projects-41abfdd8.vercel.app/api/get-currency-by-date/PLN/20240403`
+      )
       .pipe(
         tap((response: any) => {
           if (response && response.data.length > 0) {
